@@ -61,12 +61,10 @@ app.get('/eth/api/v1/transaction', function(req, res){
     if(opt == "actransfer") {
         console.log("Calling fetchAcTransferDetailByTxId");
         fetchAcTransferDetailByTxId(tx).then( (data)=> {
-            console.log("promosed resolved");
-            console.log(data);
             resp = data;
             res.send(resp);
         },(data) => {
-            console.log("Then failure:" + data);
+            console.log("error" + data);
           }
         )
         
@@ -74,12 +72,10 @@ app.get('/eth/api/v1/transaction', function(req, res){
         console.log("Calling fetchErc20TransferDetailByTxId")
 
         resp=  fetchErc20TransferDetailByTxId(tx).then( (data)=> {
-            console.log("promised resolved");
-            console.log(data);
             resp = data;
             res.send(resp);
         },(data) => {
-            console.log("Then failure:" + data);
+            console.log("error" + data);
           }
         )
 
@@ -87,12 +83,10 @@ app.get('/eth/api/v1/transaction', function(req, res){
         console.log("Calling fetchContractExecDetailByTxId")
         
         resp =  fetchContractExecDetailByTxId(tx).then( (data)=> {
-            console.log("promised resolved");
-            console.log(data);
             resp = data;
             res.send(resp);
         },(data) => {
-            console.log("Then failure:" + data);
+            console.log("error" + data);
           }
         )
     }
